@@ -2,14 +2,14 @@ on: push
 
 jobs:
   hello_world_job:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Hello perso
-        runs-on: ubuntu-latest
         id: hello
         uses: ./
         with:
           who-to-greet: me
       - name: Get the time
-        run: echo "Time : ${{steps.hello.outputs.time }}"
+        run: 'echo "Time : ${{ steps.hello.outputs.time }}"'
